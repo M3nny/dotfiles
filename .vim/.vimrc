@@ -17,9 +17,10 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
+Plug 'M3nny/catppuccin-vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
 
 call plug#end()
 
@@ -30,14 +31,13 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set relativenumber
-set rnu
-set nowrap
+set number relativenumber
+set nu rnu
 set smartcase
 set incsearch
 inoremap kj <Esc>
 
-" Pugins Settings ------------------------------------------
+" Plugins Settings ------------------------------------------
  
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
@@ -49,5 +49,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Appearance -----------------------------------------------
 
 syntax on
-colorscheme gruvbox
+colorscheme catppuccin
 set background=dark
+set termguicolors
