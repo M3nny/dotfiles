@@ -21,6 +21,7 @@ Plug 'M3nny/catppuccin-vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
