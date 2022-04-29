@@ -17,12 +17,13 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'M3nny/catppuccin-vim'
+Plug 'catppuccin/vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
+Plug 'vim-python/python-syntax'
 
 call plug#end()
 
@@ -39,6 +40,7 @@ set number relativenumber
 set nu rnu
 set smartcase
 set incsearch
+set nowrap
 inoremap kj <Esc>
 
 " Plugins Settings ------------------------------------------
@@ -49,6 +51,9 @@ autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | e
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Enable better python syntax highlighting
+let g:python_highlight_all = 1
 
 " Appearance -----------------------------------------------
 
