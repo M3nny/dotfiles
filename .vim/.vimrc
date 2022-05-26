@@ -18,12 +18,14 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'catppuccin/vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-python/python-syntax'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -58,6 +60,6 @@ let g:python_highlight_all = 1
 " Appearance -----------------------------------------------
 
 syntax on
-colorscheme catppuccin
+colorscheme catppuccin_mocha
 set background=dark
 set termguicolors
