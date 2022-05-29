@@ -1,31 +1,23 @@
-"                              ____                    
-"             ,--,           ,'  , `.                  
-"           ,--.'|        ,-+-,.' _ |  __  ,-.         
-"      .---.|  |,      ,-+-. ;   , ||,' ,'/ /|         
-"    /.  ./|`--'_     ,--.'|'   |  ||'  | |' | ,---.   
-"  .-' . ' |,' ,'|   |   |  ,', |  |,|  |   ,'/     \  
-" /___/ \: |'  | |   |   | /  | |--' '  :  / /    / '  
-" .   \  ' .|  | :   |   : |  | ,    |  | ' .    ' /   
-"  \   \   ''  : |__ |   : |  |/     ;  : | '   ; :__  
-"   \   \   |  | '.'||   | |`-'      |  , ; '   | '.'| 
-"    \   \ |;  :    ;|   ;/           ---'  |   :    : 
-"     '---" |  ,   / '---'                   \   \  /  
-"            ---`-'                           `----'   
+"  __   __ __   __    __   ______   ______    
+" /\ \ / //\ \ /\ "-./  \ /\  == \ /\  ___\   
+" \ \ \'/ \ \ \\ \ \-./\ \\ \  __< \ \ \____  
+"  \ \__|  \ \_\\ \_\ \ \_\\ \_\ \_\\ \_____\ 
+"   \/_/    \/_/ \/_/  \/_/ \/_/ /_/ \/_____/ 
+
 " M3nny's vimrc
 
 " Plugins --------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'catppuccin/vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-python/python-syntax'
-Plug 'sheerun/vim-polyglot'
+Plug 'justinmk/vim-sneak'
+
 
 call plug#end()
 
@@ -57,9 +49,12 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Enable better python syntax highlighting
 let g:python_highlight_all = 1
 
+" Remap f to sneak and enable label-mode
+map f <Plug>Sneak_s
+let g:sneak#label = 1
+
 " Appearance -----------------------------------------------
 
 syntax on
 colorscheme catppuccin_mocha
-set background=dark
 set termguicolors
