@@ -49,8 +49,9 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Enable better python syntax highlighting
 let g:python_highlight_all = 1
 
-" Remap f to sneak and enable label-mode
+" Remap f/F to sneak and enable label-mode
 map f <Plug>Sneak_s
+map F <Plug>Sneak_S
 let g:sneak#label = 1
 
 " Appearance -----------------------------------------------
