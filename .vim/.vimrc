@@ -1,31 +1,25 @@
-"                              ____                    
-"             ,--,           ,'  , `.                  
-"           ,--.'|        ,-+-,.' _ |  __  ,-.         
-"      .---.|  |,      ,-+-. ;   , ||,' ,'/ /|         
-"    /.  ./|`--'_     ,--.'|'   |  ||'  | |' | ,---.   
-"  .-' . ' |,' ,'|   |   |  ,', |  |,|  |   ,'/     \  
-" /___/ \: |'  | |   |   | /  | |--' '  :  / /    / '  
-" .   \  ' .|  | :   |   : |  | ,    |  | ' .    ' /   
-"  \   \   ''  : |__ |   : |  |/     ;  : | '   ; :__  
-"   \   \   |  | '.'||   | |`-'      |  , ; '   | '.'| 
-"    \   \ |;  :    ;|   ;/           ---'  |   :    : 
-"     '---" |  ,   / '---'                   \   \  /  
-"            ---`-'                           `----'   
+"  __   __ __   __    __   ______   ______    
+" /\ \ / //\ \ /\ "-./  \ /\  == \ /\  ___\   
+" \ \ \'/ \ \ \\ \ \-./\ \\ \  __< \ \ \____  
+"  \ \__|  \ \_\\ \_\ \ \_\\ \_\ \_\\ \_____\ 
+"   \/_/    \/_/ \/_/  \/_/ \/_/ /_/ \/_____/ 
+
 " M3nny's vimrc
 
 " Plugins --------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'catppuccin/vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'preservim/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-python/python-syntax'
-Plug 'sheerun/vim-polyglot'
+Plug 'justinmk/vim-sneak'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -44,6 +38,7 @@ set smartcase
 set incsearch
 set nowrap
 inoremap kj <Esc>
+nnoremap <C-p> :Files %:p:h<CR> 
 
 " Plugins Settings ------------------------------------------
  
@@ -54,12 +49,13 @@ autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | e
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" Enable better python syntax highlighting
-let g:python_highlight_all = 1
+" Remap f/F to sneak and enable label-mode
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+let g:sneak#label = 1
 
 " Appearance -----------------------------------------------
 
 syntax on
 colorscheme catppuccin_mocha
-set background=dark
 set termguicolors
