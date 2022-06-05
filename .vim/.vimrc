@@ -54,6 +54,11 @@ map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 let g:sneak#label = 1
 
+" Remap f/F to sneak and enable label-mode
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+let g:sneak#label = 1
+
 " Appearance -----------------------------------------------
 
 syntax on
