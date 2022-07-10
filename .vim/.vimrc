@@ -13,13 +13,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'Yggdroot/indentLine'
+Plug 'alvan/vim-closetag'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -39,6 +42,7 @@ set incsearch
 set nowrap
 inoremap kj <Esc>
 nnoremap <C-p> :Files %:p:h<CR> 
+filetype plugin indent on
 
 " Plugins Settings ------------------------------------------
  
@@ -58,6 +62,9 @@ let g:sneak#label = 1
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 let g:sneak#label = 1
+
+" Close html tags in these file extensions
+let g:closetag_filenames = '*.html, *.xml, *.ts, *.tsx'
 
 " Appearance -----------------------------------------------
 
