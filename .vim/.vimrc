@@ -77,7 +77,7 @@ let g:ascii = [
     \ '             |､  ~ヽ',
     \ '             じしf_,)/',
     \ ]
-" let g:startify_custom_header = g:ascii + startify#fortune#boxed()
+let g:startify_custom_header = startify#fortune#boxed() + g:ascii 
 let g:startify_lists = [
     \ { 'type': 'files',     'header': ['   Recent files']  },
     \ { 'type': 'bookmarks', 'header': ['   Bookmarks']     },
