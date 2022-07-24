@@ -23,6 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -50,9 +51,6 @@ filetype plugin indent on
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
 " Remap f/F to sneak and enable label-mode
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
@@ -69,5 +67,7 @@ let g:closetag_filenames = '*.html, *.xml, *.ts, *.tsx'
 " Appearance -----------------------------------------------
 
 syntax on
+set noshowmode
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 colorscheme catppuccin_mocha
 set termguicolors
