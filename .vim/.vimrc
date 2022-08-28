@@ -25,13 +25,14 @@ Plug 'alvan/vim-closetag'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
+Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 
 " General Settings -----------------------------------------
 
-let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -42,6 +43,7 @@ set nu rnu
 set smartcase
 set incsearch
 set nowrap
+set laststatus=2
 inoremap kj <Esc>
 nnoremap <C-p> :Files %:p:h<CR> 
 filetype plugin indent on
