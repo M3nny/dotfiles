@@ -25,7 +25,7 @@ Plug 'alvan/vim-closetag'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
-Plug 'psliwka/vim-smoothie'
+Plug 'joeytwiddle/sexy_scroller.vim'
 
 call plug#end()
 
@@ -88,6 +88,9 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
   \ { 'v': '~/.vimrc' },
   \ ]
+
+" Sexy scroller config
+let g:SexyScroller_EasingStyle = 3
 
 " Appearance -----------------------------------------------
 
