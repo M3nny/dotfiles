@@ -9,12 +9,11 @@
 " Plugins --------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
-
+    
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ervandew/supertab'
-Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
