@@ -26,6 +26,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'joeytwiddle/sexy_scroller.vim'
+Plug 'ap/vim-css-color'
+Plug 'jayli/vim-easycomplete'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -44,6 +47,8 @@ set smartcase
 set incsearch
 set nowrap
 set laststatus=2
+set lazyredraw
+set scrolloff=3
 inoremap kj <Esc>
 nnoremap <C-p> :Files %:p:h<CR> 
 filetype plugin indent on
