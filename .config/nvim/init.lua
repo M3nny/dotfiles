@@ -10,7 +10,6 @@ end
 require('packer').startup(function(use)
     -- Package manager
     use 'wbthomason/packer.nvim'
-
     use { -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
         requires = {
@@ -19,29 +18,24 @@ require('packer').startup(function(use)
           'williamboman/mason-lspconfig.nvim',
         },
     }
-
     use { -- Autocompletion
         'hrsh7th/nvim-cmp',
         requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
     }
-
     use { -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
         run = function()
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end,
     }
-
     use { -- Additional text objects via treesitter
         'nvim-treesitter/nvim-treesitter-textobjects',
         after = 'nvim-treesitter',
     }
-
     -- Git related plugins
     use { "catppuccin/nvim", as = "catppuccin" }
     use 'tpope/vim-fugitive'
-
-    use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+    use 'feline-nvim/feline.nvim'
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
     use 'ggandor/lightspeed.nvim' -- jump from a word to another
@@ -61,7 +55,7 @@ require('packer').startup(function(use)
     	plugins(use)
   	end
 
-  	if is_bootstrap then
+    if is_bootstrap then
    		require('packer').sync()
   	end
 end)
@@ -121,6 +115,10 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
+require("catppuccin").setup({
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    no_italic = true, -- Force no italic
+})
 vim.o.termguicolors = true
 vim.cmd.colorscheme "catppuccin"
 
@@ -153,17 +151,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   	pattern = '*',
 })
 
--- Set lualine as statusline
--- See `:help lualine.txt`
-require('lualine').setup {
-  	options = {
-    	icons_enabled = false,
-    	component_separators = '|',
-    	section_separators = '',
-  	},
-}
+-- Set feline as statusline
+local ctp_feline = require('catppuccin.groups.integrations.feline')
+require("feline").setup({
+    components = ctp_feline.get(),
+})
+require('feline').setup()
 
-local home = os.getenv('HOME')
 local db = require('dashboard')
 db.custom_center = {
     	{icon = '  ',
@@ -221,7 +215,7 @@ vim.keymap.set('n', '<leader>/', function()
 	})
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
