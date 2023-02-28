@@ -28,19 +28,20 @@ require('packer').startup(function(use)
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end,
     }
+    use 'nvim-treesitter/nvim-treesitter-context' -- Sticky headers
     use { -- Additional text objects via treesitter
         'nvim-treesitter/nvim-treesitter-textobjects',
         after = 'nvim-treesitter',
     }
     -- Git related plugins
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use 'tpope/vim-fugitive'
-    use 'feline-nvim/feline.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" } -- Theme
+    use 'tpope/vim-fugitive' -- Git plugin
+    use 'feline-nvim/feline.nvim' -- Statusbar
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-    use 'ggandor/lightspeed.nvim' -- jump from a word to another
-    use 'glepnir/dashboard-nvim' -- startup dashboard
-    use 'nvim-tree/nvim-web-devicons' -- nerdfont icons
+    use 'ggandor/lightspeed.nvim' -- Jump from a word to another
+    use 'glepnir/dashboard-nvim' -- Startup dashboard
+    use 'nvim-tree/nvim-web-devicons' -- Nerdfont icons
     use 'steelsojka/pears.nvim' -- autopairs
 
     -- Fuzzy Finder (files, lsp, etc)
@@ -346,18 +347,7 @@ vim.keymap.set("i", "kj", "<Esc>", options)
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-	-- clangd = {},
-	-- gopls = {},
-	-- pyright = {},
-	-- rust_analyzer = {},
-	-- tsserver = {},
-
-	sumneko_lua = {
-		Lua = {
-		workspace = { checkThirdParty = false },
-		telemetry = { enable = false },
-		},
-	},
+  clangd = {},
 }
 
 
@@ -372,7 +362,7 @@ require('mason').setup()
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
-  	ensure_installed = vim.tbl_keys(servers),
+  ensure_installed = vim.tbl_keys(servers),
 }
 
 mason_lspconfig.setup_handlers {
