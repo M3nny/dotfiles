@@ -1,5 +1,0 @@
-[system]
-adapter = ACAD
-battery = BAT1
-graphics_card = amdgpu_bl0
-network_interface = eno1
