@@ -1,0 +1,17 @@
+# Lengthen uptime output
+long_uptime = true
+
+# Toggle between displaying the number of physical or logical cores of your
+# processor.
+physical_cores = true
+
+theme = "Boba"
+
+show = [
+        "Host",
+        "Packages",
+        "Uptime",
+        "ProcessorLoad",
+        "Memory",
+        "Battery",
+    ]
