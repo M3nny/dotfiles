@@ -1,3 +1,3 @@
 return {
-    'tpope/vim-fugitive', -- Git plugin
+    "tpope/vim-fugitive", -- Git plugin
 }

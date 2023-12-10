@@ -1,6 +1,6 @@
 return {
     { -- Autopairs
-        'steelsojka/pears.nvim',
+        "steelsojka/pears.nvim",
         config = function()
             require("pears").setup()
         end
