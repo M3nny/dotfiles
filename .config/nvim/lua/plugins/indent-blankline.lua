@@ -1,12 +1,26 @@
 -- indent guides
 return {
-    "lukas-reineke/indent-blankline.nvim",
-    tag = "v2.20.8",
-    config = function()
-        require("indent_blankline").setup {
-            space_char_blankline = " ",
-            show_current_context = true,
-            show_current_context_start = false,
-        }
-    end
+	"lukas-reineke/indent-blankline.nvim",
+
+	main = "ibl",
+
+	config = function()
+		require("ibl").setup({
+
+			scope = {
+				show_start = false,
+				show_end = false
+			},
+
+			indent = {
+				char = "│",
+				tab_char = "│",
+				smart_indent_cap = true,
+			},
+
+			whitespace = {
+				remove_blankline_trail = true
+			}
+		})
+	end
 }

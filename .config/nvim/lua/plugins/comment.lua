@@ -1,8 +1,8 @@
 -- use <gc> to comment visual regions/lines
 return {
-    "numToStr/Comment.nvim",
+	"numToStr/Comment.nvim",
 
-    config = function()
-        require("Comment").setup()
-    end
+	config = function()
+		require("Comment").setup()
+	end
 }
