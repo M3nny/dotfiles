@@ -6,16 +6,15 @@ if not vim.loop.fs_stat(lazypath) then
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
         "--branch=stable", -- latest stable release
-    lazypath,
+        lazypath
     })
 end
+
 vim.opt.list = true
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Basic Keymaps ]]
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+-- set <space> as the leader key
+-- NOTE: must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

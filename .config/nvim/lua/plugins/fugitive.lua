@@ -1,3 +1,2 @@
-return {
-    "tpope/vim-fugitive", -- Git plugin
-}
+-- git wrapper
+return {"tpope/vim-fugitive"}
