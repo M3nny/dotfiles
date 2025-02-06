@@ -8,6 +8,13 @@
 
 " Plugins --------------------------------------------------
 
+" Download vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
@@ -22,8 +29,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 Plug 'itchyny/lightline.vim'
-Plug 'mhinz/vim-startify'
-Plug 'joeytwiddle/sexy_scroller.vim'
 Plug 'ap/vim-css-color'
 Plug 'jayli/vim-easycomplete'
 Plug 'SirVer/ultisnips'
@@ -77,27 +82,6 @@ let g:sneak#label = 1
 
 " Close html tags in these file extensions
 let g:closetag_filenames = '*.html, *.xml, *.ts, *.tsx'
-
-" Startify config
-let g:ascii = [
-    \ '        o',
-    \ '         o   /| ､',
-    \ '          o  (°､ ｡ 7',
-    \ '             |､  ~ヽ',
-    \ '             じしf_,)/',
-    \ ]
-let g:startify_custom_header = startify#fortune#boxed() + g:ascii
-let g:startify_lists = [
-    \ { 'type': 'files',     'header': ['   Recent files']  },
-    \ { 'type': 'bookmarks', 'header': ['   Bookmarks']     },
-    \ ]
-
-let g:startify_bookmarks = [
-  \ { 'v': '~/.vimrc' },
-  \ ]
-
-" Sexy scroller config
-let g:SexyScroller_EasingStyle = 3
 
 " Appearance -----------------------------------------------
 
