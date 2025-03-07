@@ -4,5 +4,5 @@ return {
 
 	config = function()
 		require("pears").setup()
-	end
+	end,
 }

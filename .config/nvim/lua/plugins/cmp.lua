@@ -5,7 +5,7 @@ return {
 	dependencies = {
 		"L3MON4D3/LuaSnip",
 		"hrsh7th/cmp-nvim-lsp",
-		"saadparwaiz1/cmp_luasnip"
+		"saadparwaiz1/cmp_luasnip",
 	},
 
 	config = function()
@@ -14,29 +14,29 @@ return {
 		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 		-- nvim-cmp setup
-		local cmp = require "cmp"
-		local luasnip = require "luasnip"
+		local cmp = require("cmp")
+		local luasnip = require("luasnip")
 
-		cmp.setup {
+		cmp.setup({
 			window = {
 				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered()
+				documentation = cmp.config.window.bordered(),
 			},
 
 			snippet = {
 				expand = function(args)
-				luasnip.lsp_expand(args.body)
+					luasnip.lsp_expand(args.body)
 				end,
 			},
 
-			mapping = cmp.mapping.preset.insert {
+			mapping = cmp.mapping.preset.insert({
 				["<C-d>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(),
-				["<CR>"] = cmp.mapping.confirm {
+				["<CR>"] = cmp.mapping.confirm({
 					behavior = cmp.ConfirmBehavior.Replace,
-					select = true
-				},
+					select = true,
+				}),
 
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
@@ -46,7 +46,7 @@ return {
 					else
 						fallback()
 					end
-				end, {"i", "s"}),
+				end, { "i", "s" }),
 
 				["<S-Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
@@ -56,13 +56,13 @@ return {
 					else
 						fallback()
 					end
-				end, {"i", "s"}),
-			},
+				end, { "i", "s" }),
+			}),
 
 			sources = {
-				{name = "nvim_lsp"},
-				{name = "luasnip"},
-			}
-		}
-	end
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+			},
+		})
+	end,
 }

@@ -18,6 +18,6 @@ return {
 		})
 
 		vim.o.termguicolors = true
-		vim.cmd.colorscheme "catppuccin"
-	end
+		vim.cmd.colorscheme("catppuccin")
+	end,
 }

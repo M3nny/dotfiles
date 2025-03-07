@@ -9,7 +9,7 @@ return {
 
 			scope = {
 				show_start = false,
-				show_end = false
+				show_end = false,
 			},
 
 			indent = {
@@ -19,8 +19,8 @@ return {
 			},
 
 			whitespace = {
-				remove_blankline_trail = true
-			}
+				remove_blankline_trail = true,
+			},
 		})
-	end
+	end,
 }

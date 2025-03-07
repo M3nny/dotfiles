@@ -12,29 +12,29 @@ return {
 				require("mason").setup()
 
 				-- ensure the servers above are installed
-				local mason_lspconfig = require "mason-lspconfig"
+				local mason_lspconfig = require("mason-lspconfig")
 
 				-- lsp servers
 				local servers = {
-					clangd = {}
+					clangd = {},
 				}
 
-				mason_lspconfig.setup {
-					ensure_installed = vim.tbl_keys(servers)
-				}
+				mason_lspconfig.setup({
+					ensure_installed = vim.tbl_keys(servers),
+				})
 
-				mason_lspconfig.setup_handlers {
+				mason_lspconfig.setup_handlers({
 					function(server_name)
-						require("lspconfig")[server_name].setup {
+						require("lspconfig")[server_name].setup({
 							capabilities = capabilities,
 							on_attach = on_attach,
-							settings = servers[server_name]
-						}
-					end
-				}
-			end
+							settings = servers[server_name],
+						})
+					end,
+				})
+			end,
 		},
 
-		"williamboman/mason-lspconfig.nvim"
-	}
+		"williamboman/mason-lspconfig.nvim",
+	},
 }
