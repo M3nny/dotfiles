@@ -2,8 +2,8 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
 
-	-- load on file open
-	event = "BufRead",
+	-- load when creating or opening a file
+	event = { "BufNewFile", "BufReadPre" },
 
 	main = "ibl",
 

@@ -4,8 +4,8 @@ return {
 
 	-- load on specific keypress
 	keys = {
-		{ "s", mode = { "n", "v" } }, -- 's' in normal (n) and visual (x) mode
-		{ "S", mode = { "n", "v" } }, -- 'S' in normal and visual mode
+		{ "s", mode = { "n", "v" } }, -- "s" in normal (n) and visual (v) mode
+		{ "S", mode = { "n", "v" } }, -- "S" in normal and visual mode
 	},
 
 	config = function()

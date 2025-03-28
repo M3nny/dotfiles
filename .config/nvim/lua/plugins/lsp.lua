@@ -4,8 +4,8 @@ return {
 		-- provides a sane config for each installed lsp
 		"neovim/nvim-lspconfig",
 
-		-- load on file open
-		event = "BufRead",
+		-- load when creating or opening a file
+		event = { "BufNewFile", "BufReadPre" },
 	},
 
 	{
@@ -43,8 +43,8 @@ return {
 		-- integrate mason with nvim-lspconfig
 		"williamboman/mason-lspconfig.nvim",
 
-		-- load on file open
-		event = "BufRead",
+		-- load when creating or opening a file
+		event = { "BufNewFile", "BufReadPre" },
 
 		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
 	},

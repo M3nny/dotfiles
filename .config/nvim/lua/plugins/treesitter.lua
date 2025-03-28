@@ -2,8 +2,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 
-	-- load on file open
-	event = "BufRead",
+	-- load when creating or opening a file
+	event = { "BufNewFile", "BufReadPre" },
 
 	opts = {
 		-- add languages to be installed here that you want installed for treesitter
@@ -24,5 +24,5 @@ return {
 		indent = { enable = true, disable = { "python" } },
 	},
 
-	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+	dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
 }

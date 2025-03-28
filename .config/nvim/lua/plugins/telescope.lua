@@ -53,6 +53,16 @@ return {
 				require("telescope.builtin").diagnostics,
 				{ desc = "[S]earch [D]iagnostics" }
 			)
+
+			-- grep globally
+			vim.keymap.set("n", "<leader>gg", function()
+				require("telescope.builtin").live_grep()
+			end, { desc = "[G]rep [G]lobally" })
+
+			-- grep word under cursor
+			vim.keymap.set("n", "<leader>gw", function()
+				require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
+			end, { desc = "[G]rep [W]ord under cursor" })
 		end,
 
 		dependencies = {
@@ -65,7 +75,7 @@ return {
 		-- fuzzy finder algorithm which requires local dependencies to be built. only load if "make" is available
 		"nvim-telescope/telescope-fzf-native.nvim",
 
-		dependencies = { "nvim-telescope/telescope.nvim" },
+		dependencies = "nvim-telescope/telescope.nvim",
 		build = "make",
 		cond = vim.fn.executable("make") == 1,
 	},
