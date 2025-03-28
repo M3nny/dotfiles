@@ -2,6 +2,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
+
 		branch = "0.1.x",
 
 		config = function()
@@ -17,29 +18,35 @@ return {
 			})
 
 			-- enable telescope fzf native, if installed
-			pcall(require("telescope").load_extension, "fzf")
+			require("telescope").load_extension("fzf")
 
+			-- find recently opened files
 			vim.keymap.set(
 				"n",
 				"<leader>?",
 				require("telescope.builtin").oldfiles,
 				{ desc = "[?] Find recently opened files" }
 			)
+
+			-- find existing buffers
 			vim.keymap.set(
 				"n",
 				"<leader><space>",
 				require("telescope.builtin").buffers,
 				{ desc = "[ ] Find existing buffers" }
 			)
+
+			-- fuzzily search in current buffer
 			vim.keymap.set("n", "<leader>/", function()
-				-- pass additional configuration to telescope to change theme, layout, etc.
-				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					winblend = 10,
-					previewer = false,
-				}))
+				require("telescope.builtin").current_buffer_fuzzy_find(
+					require("telescope.themes").get_dropdown({ winblend = 10, previewer = false })
+				)
 			end, { desc = "[/] Fuzzily search in current buffer]" })
 
+			-- find files
 			vim.keymap.set("n", "<leader>f", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
+
+			-- search diagnostics
 			vim.keymap.set(
 				"n",
 				"<leader>sd",
@@ -47,6 +54,7 @@ return {
 				{ desc = "[S]earch [D]iagnostics" }
 			)
 		end,
+
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
@@ -56,6 +64,8 @@ return {
 	{
 		-- fuzzy finder algorithm which requires local dependencies to be built. only load if "make" is available
 		"nvim-telescope/telescope-fzf-native.nvim",
+
+		dependencies = { "nvim-telescope/telescope.nvim" },
 		build = "make",
 		cond = vim.fn.executable("make") == 1,
 	},

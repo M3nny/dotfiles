@@ -27,3 +27,6 @@ vim.wo.signcolumn = "yes"
 
 -- set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
+
+-- set true color
+vim.o.termguicolors = true

@@ -2,31 +2,27 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 
-	build = function()
-		pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-	end,
+	-- load on file open
+	event = "BufRead",
 
-	config = function()
-		require("nvim-treesitter.configs").setup({
-			-- add languages to be installed here that you want installed for treesitter
-			ensure_installed = {
-				"vim",
-				"vimdoc",
-				"lua",
-				"c",
-				"cpp",
-				"rust",
-				"java",
-				"python",
-				"javascript",
-				"typescript",
-			},
-			highlight = { enable = true },
-			indent = { enable = true, disable = { "python" } },
-		})
-	end,
-
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
+	opts = {
+		-- add languages to be installed here that you want installed for treesitter
+		ensure_installed = {
+			"vim",
+			"vimdoc",
+			"lua",
+			"c",
+			"cpp",
+			"rust",
+			"java",
+			"python",
+			"javascript",
+			"typescript",
+			"just",
+		},
+		highlight = { enable = true },
+		indent = { enable = true, disable = { "python" } },
 	},
+
+	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 }

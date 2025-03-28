@@ -2,7 +2,6 @@
 return {
 	"numToStr/Comment.nvim",
 
-	config = function()
-		require("Comment").setup()
-	end,
+	-- load on specific keypress
+	keys = { "gc" },
 }

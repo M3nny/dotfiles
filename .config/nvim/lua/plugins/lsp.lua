@@ -1,40 +1,50 @@
 -- lsp configuration & plugins
 return {
-	"neovim/nvim-lspconfig",
+	{
+		-- provides a sane config for each installed lsp
+		"neovim/nvim-lspconfig",
 
-	dependencies = {
-		{
-			-- automatically install lsp(s) to stdpath for neovim
-			"williamboman/mason.nvim",
+		-- load on file open
+		event = "BufRead",
+	},
 
-			config = function()
-				-- setup mason so it can manage external tooling
-				require("mason").setup()
+	{
+		-- automatically install lsp(s) to stdpath for neovim
+		"williamboman/mason.nvim",
 
-				-- ensure the servers above are installed
-				local mason_lspconfig = require("mason-lspconfig")
+		-- load when mason is called
+		cmd = "Mason",
 
-				-- lsp servers
-				local servers = {
-					clangd = {},
-				}
+		config = function()
+			-- setup mason so it can manage external tooling
+			require("mason").setup()
 
-				mason_lspconfig.setup({
-					ensure_installed = vim.tbl_keys(servers),
-				})
+			-- load mason-lspconfig, which bridges mason and nvim-lspconfig
+			local mason_lspconfig = require("mason-lspconfig")
 
-				mason_lspconfig.setup_handlers({
-					function(server_name)
-						require("lspconfig")[server_name].setup({
-							capabilities = capabilities,
-							on_attach = on_attach,
-							settings = servers[server_name],
-						})
-					end,
-				})
-			end,
-		},
+			-- ensure specified lsp servers are installed
+			mason_lspconfig.setup({
+				ensure_installed = { "clangd" },
+			})
 
+			-- set up handlers to configure each installed lsp server
+			mason_lspconfig.setup_handlers({
+				function(server_name)
+					require("lspconfig")[server_name].setup({
+						capabilities = capabilities,
+						on_attach = on_attach,
+					})
+				end,
+			})
+		end,
+	},
+
+	{
+		-- integrate mason with nvim-lspconfig
 		"williamboman/mason-lspconfig.nvim",
+
+		-- loads when another plugins requires it
+		lazy = true,
+		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
 	},
 }
