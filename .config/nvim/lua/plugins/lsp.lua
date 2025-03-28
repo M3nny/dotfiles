@@ -43,8 +43,9 @@ return {
 		-- integrate mason with nvim-lspconfig
 		"williamboman/mason-lspconfig.nvim",
 
-		-- loads when another plugins requires it
-		lazy = true,
+		-- load on file open
+		event = "BufRead",
+
 		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
 	},
 }
