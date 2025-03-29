@@ -2,8 +2,9 @@
 return {
 	"steelsojka/pears.nvim",
 
-	-- load when entering insert mode
-	event = "InsertEnter",
+	-- load when creating or opening a file
+	event = { "BufNewFile", "BufReadPre" },
+
 
 	config = function()
 		require("pears").setup(function(conf)
