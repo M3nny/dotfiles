@@ -14,6 +14,10 @@ return {
 				["-"] = "actions.parent", -- go to parent directory
 				["_"] = "actions.open_cwd", -- go to current directory
 			},
+
+			view_options = {
+				show_hidden = true,
+			},
 		})
 
 		-- open oil
