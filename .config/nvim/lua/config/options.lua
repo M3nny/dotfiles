@@ -1,11 +1,11 @@
+-- use tabs of 4 spaces width to indent
 vim.o.expandtab = false
 vim.o.smartindent = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.o.scrolloff = 3
 
--- set highlight on search
-vim.o.hlsearch = false
+-- minimum number of lines to be view above/below the cursor
+vim.o.scrolloff = 3
 
 -- make line numbers default
 vim.wo.number = true
@@ -23,10 +23,11 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- show the sign column
 vim.wo.signcolumn = "yes"
 
 -- set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 
--- set true color
+-- enable true color support
 vim.o.termguicolors = true

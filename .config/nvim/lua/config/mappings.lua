@@ -5,7 +5,8 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 local opts = { noremap = true, silent = true, buffer = bufnr }
 
 vim.keymap.set("i", "kj", "<Esc>", opts) -- map <kj> to <Esc>
+
+-- lsp keymaps
 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- hover docs
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- go to definition
-vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- go to references
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- go to implementation
+vim.keymap.set("n", "rn", vim.lsp.buf.rename, opts) -- rename the variable under the cursor across files

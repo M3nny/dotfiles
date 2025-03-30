@@ -3,5 +3,5 @@ return {
 	"numToStr/Comment.nvim",
 
 	-- load on specific keypress
-	keys = { "gc" },
+	keys = "gc",
 }

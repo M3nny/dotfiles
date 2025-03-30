@@ -23,6 +23,4 @@ return {
 		highlight = { enable = true },
 		indent = { enable = true, disable = { "python" } },
 	},
-
-	dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
 }

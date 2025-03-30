@@ -63,6 +63,11 @@ return {
 			vim.keymap.set("n", "<leader>gw", function()
 				require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
 			end, { desc = "[G]rep [W]ord under cursor" })
+
+			-- find references for the word under your cursor
+			vim.keymap.set("n", "<leader>gr", function()
+				require("telescope.builtin").lsp_references()
+			end, { desc = "[G]oto [R]eferences" })
 		end,
 
 		dependencies = {
