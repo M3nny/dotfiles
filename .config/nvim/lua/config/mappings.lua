@@ -12,6 +12,14 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- go to definition
 vim.keymap.set("n", "rn", vim.lsp.buf.rename, opts) -- rename the variable under the cursor across files
 vim.keymap.set("n", "ca", vim.lsp.buf.code_action, opts) -- show code actions
 
+-- disable yank on delete
+vim.keymap.set('n', 'd', '"_d', { noremap = true })
+vim.keymap.set('n', 'D', '"_D', { noremap = true })
+vim.keymap.set('n', 'x', '"_x', { noremap = true })
+vim.keymap.set('n', 'X', '"_X', { noremap = true })
+vim.keymap.set('n', 'c', '"_c', { noremap = true })
+vim.keymap.set('n', 'C', '"_C', { noremap = true })
+
 local function toggle_virtual_lines()
 	--@type boolean|table
 	local current_virtual_lines_config = vim.diagnostic.config().virtual_lines
