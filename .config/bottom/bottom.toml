@@ -1,0 +1,11 @@
+# Layout
+[[row]]
+	[[row.child]]
+	type="cpu"
+[[row]]
+	[[row.child]]
+	type="proc"
+
+# Processes stats
+[processes]
+columns = ["pid", "name", "cpu%", "mem%"]
