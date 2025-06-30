@@ -1,0 +1,14 @@
+[
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "k j": "vim::SwitchToNormalMode"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space f": "file_finder::Toggle"
+    }
+  }
+]
