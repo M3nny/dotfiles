@@ -14,6 +14,20 @@ return {
 
 		-- load when mason is called
 		cmd = "Mason",
+
+		config = function()
+			-- setup mason so it can manage external tooling
+			require("mason").setup()
+
+			-- initialize mason-lspconfig
+			require("mason-lspconfig").setup()
+
+			-- global lsp config
+			vim.lsp.config("*", {
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+		end,
 	},
 
 	{
