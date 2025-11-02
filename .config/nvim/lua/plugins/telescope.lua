@@ -1,4 +1,4 @@
--- fuzzy finder
+-- Fuzzy finder
 return {
 	{
 		"nvim-telescope/telescope.nvim",
@@ -17,10 +17,10 @@ return {
 				},
 			})
 
-			-- enable telescope fzf native, if installed
+			-- Enable telescope fzf native, if installed
 			require("telescope").load_extension("fzf")
 
-			-- find recently opened files
+			-- Find recently opened files
 			vim.keymap.set(
 				"n",
 				"<leader>?",
@@ -28,7 +28,7 @@ return {
 				{ desc = "[?] Find recently opened files" }
 			)
 
-			-- find existing buffers
+			-- Find existing buffers
 			vim.keymap.set(
 				"n",
 				"<leader><space>",
@@ -36,17 +36,17 @@ return {
 				{ desc = "[ ] Find existing buffers" }
 			)
 
-			-- fuzzily search in current buffer
+			-- Fuzzily search in current buffer
 			vim.keymap.set("n", "<leader>/", function()
 				require("telescope.builtin").current_buffer_fuzzy_find(
 					require("telescope.themes").get_dropdown({ winblend = 10, previewer = false })
 				)
 			end, { desc = "[/] Fuzzily search in current buffer]" })
 
-			-- find files
+			-- Find files
 			vim.keymap.set("n", "<leader>f", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
 
-			-- search diagnostics
+			-- Search diagnostics
 			vim.keymap.set(
 				"n",
 				"<leader>sd",
@@ -54,17 +54,22 @@ return {
 				{ desc = "[S]earch [D]iagnostics" }
 			)
 
-			-- grep globally
+			-- Find document symbols
+			vim.keymap.set("n", "<leader>ss", function()
+				require("telescope.builtin").lsp_document_symbols()
+			end, { desc = "[S]earch [S]ymbols (Document)" })
+
+			-- Grep globally
 			vim.keymap.set("n", "<leader>gg", function()
 				require("telescope.builtin").live_grep()
 			end, { desc = "[G]rep [G]lobally" })
 
-			-- grep word under cursor
+			-- Grep word under cursor
 			vim.keymap.set("n", "<leader>gw", function()
 				require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
 			end, { desc = "[G]rep [W]ord under cursor" })
 
-			-- find references for the word under your cursor
+			-- Find references for the word under your cursor
 			vim.keymap.set("n", "<leader>gr", function()
 				require("telescope.builtin").lsp_references()
 			end, { desc = "[G]oto [R]eferences" })
@@ -77,7 +82,7 @@ return {
 	},
 
 	{
-		-- fuzzy finder algorithm which requires local dependencies to be built. only load if "make" is available
+		-- Fuzzy finder algorithm which requires local dependencies to be built. only load if "make" is available
 		"nvim-telescope/telescope-fzf-native.nvim",
 
 		dependencies = "nvim-telescope/telescope.nvim",

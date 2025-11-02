@@ -1,7 +1,7 @@
--- git wrapper
+-- Git wrapper
 return {
 	"tpope/vim-fugitive",
 
-	-- load when the diff view is called
+	-- Load when the diff view is called
 	cmd = "Gdiffsplit",
 }

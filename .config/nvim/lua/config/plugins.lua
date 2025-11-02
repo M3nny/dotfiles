@@ -13,7 +13,7 @@ end
 vim.opt.list = true
 vim.opt.rtp:prepend(lazypath)
 
--- set <space> as the leader key
+-- Set <space> as the leader key
 -- NOTE: must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

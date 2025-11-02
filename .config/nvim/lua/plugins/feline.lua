@@ -1,4 +1,4 @@
--- statusbar
+-- Statusbar
 return {
 	"feline-nvim/feline.nvim",
 

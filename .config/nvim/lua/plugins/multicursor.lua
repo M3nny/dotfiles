@@ -2,7 +2,7 @@ return {
 	"jake-stewart/multicursor.nvim",
 	branch = "1.0",
 
-	-- load on specific keypress
+	-- Load on specific keypress
 	keys = "gl",
 
 	config = function()

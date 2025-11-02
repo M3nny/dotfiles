@@ -1,12 +1,12 @@
--- highlight, edit, and navigate code
+-- Highlight, edit, and navigate code
 return {
 	"nvim-treesitter/nvim-treesitter",
 
-	-- load when creating or opening a file
+	-- Load when creating or opening a file
 	event = { "BufNewFile", "BufReadPre" },
 
 	opts = {
-		-- add languages to be installed here that you want installed for treesitter
+		-- Add languages to be installed here that you want installed for treesitter
 		ensure_installed = {
 			"vim",
 			"vimdoc",

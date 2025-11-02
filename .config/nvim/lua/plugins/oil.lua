@@ -1,8 +1,8 @@
--- filesystem editor
+-- Filesystem editor
 return {
 	"stevearc/oil.nvim",
 
-	-- load on specific keypress
+	-- Load on specific keypress
 	keys = "-",
 
 	config = function()
@@ -20,7 +20,7 @@ return {
 			},
 		})
 
-		-- open oil
+		-- Open oil
 		vim.keymap.set("n", "-", function()
 			oil.open()
 		end, { desc = "Open oil file browser" })

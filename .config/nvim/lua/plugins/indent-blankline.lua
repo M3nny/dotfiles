@@ -1,8 +1,8 @@
--- indent guides
+-- Indent guides
 return {
 	"lukas-reineke/indent-blankline.nvim",
 
-	-- load when creating or opening a file
+	-- Load when creating or opening a file
 	event = { "BufNewFile", "BufReadPre" },
 
 	main = "ibl",
