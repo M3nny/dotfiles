@@ -9,6 +9,8 @@ return {
 	},
 
 	config = function()
-		require("leap").add_default_mappings()
+		local leap = require("leap")
+		vim.keymap.set({ "n", "v" }, "s", "<Plug>(leap-forward)", { desc = "Search after cursor" })
+		vim.keymap.set({ "n", "v" }, "S", "<Plug>(leap-backward)", { desc = "Search before cursor" })
 	end,
 }
