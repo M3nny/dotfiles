@@ -8,14 +8,12 @@ return {
 
 	config = function()
 		require("catppuccin").setup({
-			flavour = "mocha", -- latte, frappe, macchiato, mocha
-			no_italic = true, -- force no italic
-			blink = true,
+			flavour = "mocha",
+			no_italic = true,
 			leap = true,
-			indent_blankline = {
-				enabled = true,
-				colored_indent_levels = false,
-			},
+			blink = true,
+			blink_indent = true,
+			blink_pairs = true,
 		})
 
 		vim.cmd.colorscheme("catppuccin")
