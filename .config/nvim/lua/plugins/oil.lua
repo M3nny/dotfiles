@@ -1,6 +1,7 @@
 -- Filesystem editor
 return {
 	"stevearc/oil.nvim",
+	dependencies = "nvim-mini/mini.icons",
 
 	-- Load on specific keypress
 	keys = "-",
@@ -25,6 +26,4 @@ return {
 			oil.open()
 		end, { desc = "Open oil file browser" })
 	end,
-
-	dependencies = "nvim-tree/nvim-web-devicons",
 }

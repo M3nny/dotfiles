@@ -21,6 +21,8 @@ return {
 			"css",
 			"just",
 			"json",
+			"toml",
+			"terraform",
 		},
 		highlight = { enable = true },
 		indent = { enable = true, disable = { "python" } },

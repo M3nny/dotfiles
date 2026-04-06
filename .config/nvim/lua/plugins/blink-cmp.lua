@@ -20,7 +20,7 @@ return {
 		completion = { documentation = { auto_show = false } },
 
 		-- Show function signature when filling with arguments
-		signature = { enabled = true },
+		signature = { enabled = false },
 
 		-- Default list of enabled providers
 		sources = {

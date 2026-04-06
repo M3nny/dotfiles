@@ -10,10 +10,7 @@ return {
 		require("catppuccin").setup({
 			flavour = "mocha",
 			no_italic = true,
-			leap = true,
-			blink = true,
-			blink_indent = true,
-			blink_pairs = true,
+			auto_integrations = true,
 		})
 
 		vim.cmd.colorscheme("catppuccin")

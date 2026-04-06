@@ -33,10 +33,9 @@ return {
 	{
 		-- Integrate mason with nvim-lspconfig
 		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
 
 		-- Load when creating or opening a file
 		event = { "BufNewFile", "BufReadPre" },
-
-		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
 	},
 }
