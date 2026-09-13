@@ -1,6 +1,6 @@
 -- Leap from a word to another
 return {
-	"ggandor/leap.nvim",
+	"https://codeberg.org/andyg/leap.nvim",
 
 	-- Load on specific keypress
 	keys = {
