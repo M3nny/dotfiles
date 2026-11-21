@@ -31,3 +31,6 @@ vim.o.completeopt = "menuone,noselect"
 
 -- Enable true color support
 vim.o.termguicolors = true
+
+-- Outline floating windows
+vim.o.winborder = "rounded"
